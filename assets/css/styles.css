@@ -983,8 +983,15 @@ a {
 }
 
 .club-photo-img-wrap img.img-coaches-closeup {
-  object-fit: cover;
-  object-position: center 22%;
+  object-fit: contain;
+  object-position: center center;
+  background: #14171f;
+}
+
+.club-photo-img-wrap img.img-coach-quote {
+  object-fit: contain;
+  object-position: center center;
+  background: #f5e600;
 }
 
 .club-photo-img-wrap img.img-girls-action {

@@ -982,6 +982,17 @@ a {
   transition: transform 0.4s ease;
 }
 
+.club-photo-img-wrap img.img-coaches-closeup {
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.club-photo-img-wrap img.img-girls-action {
+  object-fit: contain;
+  object-position: center center;
+  background: radial-gradient(circle at 50% 50%, #151922 0%, #07080a 100%);
+}
+
 .club-photo-card:hover .club-photo-img-wrap img {
   transform: scale(1.04);
 }

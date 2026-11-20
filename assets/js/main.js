@@ -17,19 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Team Filter Tabs
-  const filterTabs = document.querySelectorAll('.filter-tab');
-  const teamCards = document.querySelectorAll('.team-card');
+  // Club Gallery Filter Tabs
+  const galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
+  const photoCards = document.querySelectorAll('.club-photo-card');
 
-  filterTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      filterTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+  galleryFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      galleryFilterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-      const filter = tab.getAttribute('data-filter');
-      teamCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
+      const filter = btn.getAttribute('data-gallery-filter');
+      photoCards.forEach(card => {
+        const categories = (card.getAttribute('data-gallery-cat') || '').split(' ');
+        if (filter === 'all' || categories.includes(filter)) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
@@ -38,21 +38,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // FAQ Accordion
-  const faqQuestions = document.querySelectorAll('.faq-question');
-  faqQuestions.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const answer = btn.nextElementSibling;
-      const toggleIcon = btn.querySelector('.faq-toggle');
-      const isOpen = answer.classList.toggle('open');
-      btn.setAttribute('aria-expanded', String(isOpen));
-      if (toggleIcon) {
-        toggleIcon.innerHTML = isOpen ? '&minus;' : '+';
+  // Fullscreen Image Lightbox Modal
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const triggers = document.querySelectorAll('.lightbox-trigger');
+
+  if (lightboxModal && lightboxImg) {
+    triggers.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        if (lightboxCaption) {
+          lightboxCaption.textContent = img.getAttribute('data-caption') || img.alt;
+        }
+        lightboxModal.classList.add('open');
+        lightboxModal.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    const closeLightbox = () => {
+      lightboxModal.classList.remove('open');
+      lightboxModal.setAttribute('aria-hidden', 'true');
+      lightboxImg.src = '';
+    };
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener('click', closeLightbox);
+    }
+
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) {
+        closeLightbox();
       }
     });
-  });
 
-  // Express Trial Registration Form -> Formats mailto to fcnortherncity@gmail.com + visual confirmation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightboxModal.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
+  }
+
+  // Express Trial Registration Form -> Formats mailto to fcnortherncity@gmail.com
   const trialRegForm = document.getElementById('trialRegForm');
   const formFeedback = document.getElementById('formFeedback');
 

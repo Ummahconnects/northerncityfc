@@ -740,6 +740,182 @@ a {
   color: var(--volt);
 }
 
+.join-submit-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.join-phone-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.join-phone-row .btn {
+  padding: 0.72rem 0.65rem;
+  font-size: 0.86rem;
+}
+
+/* Floating Quick Join Now Pill */
+.floating-join-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 95;
+  background: var(--volt);
+  color: #090a0d;
+  border: 2px solid #090a0d;
+  border-radius: 99px;
+  padding: 0.8rem 1.35rem;
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(238, 252, 28, 0.4);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.floating-join-fab:hover {
+  background: var(--volt-hover);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.fab-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #090a0d;
+  animation: pulse 1.6s infinite;
+}
+
+/* Join Now Instant Contact Modal */
+.join-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(5, 6, 9, 0.88);
+  backdrop-filter: blur(12px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+
+.join-modal.open {
+  display: flex;
+}
+
+.join-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  background: #12151d;
+  border: 2px solid var(--border-volt);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.85);
+}
+
+.join-modal-close {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.25rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.join-modal-close:hover {
+  background: var(--volt);
+  color: #090a0d;
+}
+
+.join-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  margin-bottom: 1.35rem;
+}
+
+.join-modal-crest {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--volt);
+  flex-shrink: 0;
+}
+
+.join-modal-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  line-height: 1.15;
+}
+
+.join-modal-header p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.direct-contact-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.direct-strip-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.direct-strip-btn:hover {
+  border-color: var(--volt);
+  background: var(--volt-dim);
+}
+
+.direct-strip-btn span {
+  font-size: 1.4rem;
+}
+
+.direct-strip-btn small {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.direct-strip-btn strong {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  color: var(--volt);
+}
+
+.modal-action-buttons {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
 /* Dedicated Club Gallery Section */
 .filter-tabs {
   display: flex;
@@ -1237,7 +1413,10 @@ a {
   .split-columns,
   .form-row,
   .club-gallery-grid,
-  .teams-grid {
+  .teams-grid,
+  .join-phone-row,
+  .direct-contact-strip,
+  .modal-action-buttons {
     grid-template-columns: 1fr;
   }
 

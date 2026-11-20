@@ -48,7 +48,8 @@
         <a href="#gallery" class="nav-link">Club Gallery</a>
         <a href="#teams" class="nav-link">Squads</a>
         <a href="#sponsors" class="nav-link">Sponsors</a>
-        <a href="#details" class="nav-btn">Club Details &amp; Contact</a>
+        <a href="#details" class="nav-link">Club Details</a>
+        <button type="button" class="nav-btn open-join-modal">Join Now</button>
       </nav>
     </div>
   </header>
@@ -71,15 +72,15 @@
           Based at <strong>Dryandra Reserve</strong> in Mirrabooka, Northern City FC is home to MiniRoos (U8–U12), Championship Juniors &amp; Girls (U13–U18), and our newly promoted <strong>Amateur Premier</strong> Senior teams.
         </p>
         <div class="hero-actions">
-          <a href="#trials" class="btn btn-volt">
-            Junior Trials &amp; Registration
+          <button type="button" class="btn btn-volt open-join-modal">
+            Join Now &mdash; Email or Contact +61 456 447 068
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <a href="#trials" class="btn btn-outline">
+            Junior Trials Info
           </a>
           <a href="#gallery" class="btn btn-outline">
-            View Club Gallery (9 Photos)
-          </a>
-          <a href="#details" class="btn btn-outline">
-            Club Details &amp; Contact
+            Club Gallery (9 Photos)
           </a>
         </div>
 
@@ -241,9 +242,22 @@
                 </select>
               </div>
             </div>
-            <button type="submit" class="btn btn-volt btn-full">
-              Confirm Trial Registration &amp; Send to Club
-            </button>
+            <div class="join-submit-actions">
+              <button type="submit" data-action="email" class="btn btn-volt btn-full">
+                &#9993; Join via Email (fcnortherncity@gmail.com)
+              </button>
+              <div class="join-phone-row">
+                <button type="button" id="formSmsBtn" class="btn btn-outline btn-full">
+                  &#128172; Text Details to +61 456 447 068
+                </button>
+                <button type="button" id="formWhatsappBtn" class="btn btn-outline btn-full">
+                  &#128242; WhatsApp +61 456 447 068
+                </button>
+                <a href="tel:+61456447068" class="btn btn-outline btn-full">
+                  &#128222; Call +61 456 447 068
+                </a>
+              </div>
+            </div>
             <div id="formFeedback" class="form-feedback" aria-live="polite"></div>
           </form>
         </div>
@@ -596,6 +610,107 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating Quick "Join Now" Pill Button -->
+  <button type="button" class="floating-join-fab open-join-modal" aria-label="Join Northern City FC Now">
+    <span class="fab-dot"></span>
+    <span>JOIN NOW &bull; +61 456 447 068</span>
+  </button>
+
+  <!-- "Join Now" Instant Contact & Registration Modal -->
+  <div class="join-modal" id="joinModal" role="dialog" aria-modal="true" aria-labelledby="joinModalTitle" aria-hidden="true">
+    <div class="join-modal-card">
+      <button type="button" class="join-modal-close" id="joinModalClose" aria-label="Close Join Now window">&times;</button>
+
+      <div class="join-modal-header">
+        <img src="assets/images/logo-patch.jpg" alt="Northern City FC Crest" class="join-modal-crest" />
+        <div>
+          <span class="section-kicker">JOIN NORTHERN CITY FC</span>
+          <h2 id="joinModalTitle">JOIN NOW &mdash; <span class="text-volt">DIRECT CLUB CONTACT</span></h2>
+          <p>Enter player details once and choose to <strong>Email</strong>, <strong>SMS Text</strong>, <strong>WhatsApp</strong>, or <strong>Call</strong> our club number directly.</p>
+        </div>
+      </div>
+
+      <!-- Instant 1-Tap Direct Contact Bar -->
+      <div class="direct-contact-strip">
+        <a href="tel:+61456447068" class="direct-strip-btn strip-call">
+          <span>&#128222;</span>
+          <div>
+            <small>Call Club Directly</small>
+            <strong>+61 456 447 068</strong>
+          </div>
+        </a>
+        <a href="sms:+61456447068?body=Hi%20Northern%20City%20FC%2C%20I%20would%20like%20to%20join%20the%20club!" class="direct-strip-btn strip-sms">
+          <span>&#128172;</span>
+          <div>
+            <small>Send SMS Text</small>
+            <strong>+61 456 447 068</strong>
+          </div>
+        </a>
+        <a href="https://wa.me/61456447068?text=Hi%20Northern%20City%20FC%2C%20I%20would%20like%20to%20join%20the%20club!" target="_blank" rel="noopener" class="direct-strip-btn strip-wa">
+          <span>&#128242;</span>
+          <div>
+            <small>WhatsApp Message</small>
+            <strong>+61 456 447 068</strong>
+          </div>
+        </a>
+        <a href="mailto:fcnortherncity@gmail.com?subject=Join%20Northern%20City%20FC%20Enquiry" class="direct-strip-btn strip-email">
+          <span>&#9993;</span>
+          <div>
+            <small>Official Club Email</small>
+            <strong>fcnortherncity@gmail.com</strong>
+          </div>
+        </a>
+      </div>
+
+      <!-- Pre-filled Player Details Form -->
+      <form class="join-modal-form" id="joinModalForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modalPlayerName">Player / Parent Full Name *</label>
+            <input type="text" id="modalPlayerName" required placeholder="e.g. Jordan Mensah" />
+          </div>
+          <div class="form-group">
+            <label for="modalAgeGroup">Squad / Age Group *</label>
+            <select id="modalAgeGroup" required>
+              <option value="MiniRoos (U8 - U12)">MiniRoos (Ages 7–12 / U8–U12)</option>
+              <option value="Under 13 (Fragrant Gardens)">Under 13 (Fragrant Gardens)</option>
+              <option value="Under 13 Girls (Fragrant Gardens)">Under 13 Girls (Fragrant Gardens)</option>
+              <option value="Under 14 (Fragrant Gardens)">Under 14 (Fragrant Gardens)</option>
+              <option value="Under 15 (Fragrant Gardens)">Under 15 (Fragrant Gardens)</option>
+              <option value="Under 16 (Dryandra Reserve)">Under 16 (Dryandra Reserve)</option>
+              <option value="Under 18 (Dryandra Reserve)">Under 18 (Dryandra Reserve)</option>
+              <option value="Under 18 Girls (Dryandra Reserve)">Under 18 Girls (Dryandra Reserve)</option>
+              <option value="Senior Amateur Premier">Senior Amateur Premier</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modalPhone">Your Contact Number *</label>
+            <input type="tel" id="modalPhone" required placeholder="e.g. 0412 345 678" />
+          </div>
+          <div class="form-group">
+            <label for="modalNotes">Position or Question (Optional)</label>
+            <input type="text" id="modalNotes" placeholder="e.g. Midfielder / Attending Trials" />
+          </div>
+        </div>
+
+        <div class="modal-action-buttons">
+          <button type="button" id="modalSendEmail" class="btn btn-volt">
+            &#9993; Send via Email (fcnortherncity@gmail.com)
+          </button>
+          <button type="button" id="modalSendSms" class="btn btn-outline">
+            &#128172; Text to +61 456 447 068
+          </button>
+          <button type="button" id="modalSendWa" class="btn btn-outline">
+            &#128242; WhatsApp +61 456 447 068
+          </button>
+        </div>
+        <div id="modalFeedback" class="form-feedback" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
 
   <!-- Fullscreen Image Lightbox Modal -->
   <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true">

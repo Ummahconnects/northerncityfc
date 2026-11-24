@@ -1177,6 +1177,152 @@ a {
   color: var(--text-muted);
 }
 
+/* 3DChatbots Featured Digital Partner Spotlight */
+.digital-partner-spotlight {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, rgba(16, 19, 27, 0.96), rgba(10, 12, 16, 0.98));
+  border: 2px solid var(--volt);
+  border-radius: var(--radius-lg);
+  padding: 2.35rem;
+  position: relative;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.65), 0 0 28px rgba(238, 252, 28, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.partner-badge-top {
+  display: inline-block;
+  background: var(--volt);
+  color: #090a0d;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.85rem;
+  border-radius: 99px;
+  margin-bottom: 1.15rem;
+}
+
+.partner-spotlight-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 2.25rem;
+  align-items: center;
+}
+
+.partner-brand-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+}
+
+.partner-tagline {
+  font-size: 1.05rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.partner-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.15rem;
+}
+
+.partner-services-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem 1.25rem;
+  margin-bottom: 1.35rem;
+}
+
+.partner-services-list li {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #eef1f6;
+}
+
+.ncfc-special-banner {
+  background: rgba(238, 252, 28, 0.11);
+  border: 1px dashed var(--volt);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.special-pill {
+  background: var(--volt);
+  color: #090a0d;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.ncfc-special-banner p {
+  font-size: 0.9rem;
+  color: #f8f9fa;
+  margin: 0;
+}
+
+.partner-cta-box {
+  background: rgba(24, 28, 38, 0.95);
+  border: 1px solid var(--border-volt);
+  border-radius: var(--radius-md);
+  padding: 1.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.partner-contact-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.partner-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--volt);
+  color: #090a0d;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.partner-contact-header strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: #ffffff;
+}
+
+.partner-contact-header span {
+  font-size: 0.8rem;
+  color: var(--volt);
+  font-weight: 600;
+}
+
+.partner-cta-sub {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
 /* Bottom All-In-One Club Details Hub */
 .bottom-details-section {
   background: linear-gradient(180deg, rgba(12, 14, 19, 0.45) 0%, rgba(7, 8, 11, 0.78) 100%);
@@ -1392,6 +1538,7 @@ a {
   .hero-grid,
   .trials-grid,
   .sponsor-cta-box,
+  .partner-spotlight-grid,
   .details-hub-grid {
     grid-template-columns: 1fr;
   }
@@ -1435,8 +1582,13 @@ a {
   .teams-grid,
   .join-phone-row,
   .direct-contact-strip,
-  .modal-action-buttons {
+  .modal-action-buttons,
+  .partner-services-list {
     grid-template-columns: 1fr;
+  }
+
+  .ncfc-special-banner {
+    flex-direction: column;
   }
 
   .footer-credit {

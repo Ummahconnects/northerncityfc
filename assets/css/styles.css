@@ -758,40 +758,130 @@ a {
   font-size: 0.86rem;
 }
 
-/* Floating Quick Join Now Pill */
-.floating-join-fab {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 95;
-  background: var(--volt);
-  color: #090a0d;
-  border: 2px solid #090a0d;
-  border-radius: 99px;
-  padding: 0.8rem 1.35rem;
+/* Page Sub-Hero Banner (Gallery & Sponsors Pages) */
+.page-banner {
+  padding: 4rem 0 3.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: linear-gradient(180deg, rgba(238, 252, 28, 0.08) 0%, rgba(10, 11, 14, 0.4) 100%);
+}
+
+.page-banner-title {
   font-family: var(--font-display);
-  font-size: 0.92rem;
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
   font-weight: 700;
-  letter-spacing: 0.04em;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(238, 252, 28, 0.4);
-  transition: transform 0.2s ease, background 0.2s ease;
+  line-height: 1.08;
+  margin-bottom: 0.85rem;
 }
 
-.floating-join-fab:hover {
-  background: var(--volt-hover);
-  transform: translateY(-3px) scale(1.02);
+.page-banner-lead {
+  color: var(--text-muted);
+  font-size: 1.06rem;
+  max-width: 720px;
 }
 
-.fab-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #090a0d;
-  animation: pulse 1.6s infinite;
+/* Landing Page Preview Feature Cards (Gallery & Sponsors Links) */
+.preview-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.preview-feature-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 2px solid var(--border-volt);
+  min-height: 330px;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
+}
+
+.preview-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.preview-feature-card:hover .preview-bg-img {
+  transform: scale(1.05);
+}
+
+.preview-overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(0deg, rgba(8, 9, 12, 0.96) 0%, rgba(8, 9, 12, 0.78) 65%, rgba(8, 9, 12, 0.25) 100%);
+}
+
+.preview-overlay h3 {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  margin-bottom: 0.45rem;
+}
+
+.preview-overlay p {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+/* Sponsors Directory Cards (sponsors.html) */
+.sponsors-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.sponsor-feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-volt);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.85rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
+}
+
+.sponsor-tier-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--volt-dim);
+  border: 1px solid var(--border-volt);
+  color: var(--volt);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 6px;
+}
+
+.sponsor-feature-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: #ffffff;
+}
+
+.sponsor-feature-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.sponsor-support-tag {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--volt);
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
 }
 
 /* Join Now Instant Contact Modal */
@@ -1537,6 +1627,8 @@ a {
 @media (max-width: 992px) {
   .hero-grid,
   .trials-grid,
+  .preview-cards-grid,
+  .sponsors-directory-grid,
   .sponsor-cta-box,
   .partner-spotlight-grid,
   .details-hub-grid {
